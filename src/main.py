@@ -31,9 +31,29 @@ GENERATORS = {
 }
 
 # Categorize generators by argument type
-LENGTH_ONLY = {"string", "email", "imei", "unit", "apikey", "base64", "username", "lorem"}
+LENGTH_ONLY = {
+    "string",
+    "email",
+    "imei",
+    "unit",
+    "apikey",
+    "base64",
+    "username",
+    "lorem",
+}
 RANGE_SUPPORT = {"num", "date", "time", "datetime", "timestamp"}
-NO_ARGS = {"uuid", "ipv4", "ipv6", "color", "port", "isbn", "plate", "hash", "phone", "phoneintl"}
+NO_ARGS = {
+    "uuid",
+    "ipv4",
+    "ipv6",
+    "color",
+    "port",
+    "isbn",
+    "plate",
+    "hash",
+    "phone",
+    "phoneintl",
+}
 SPECIAL_PASSWORD = {"password"}
 
 

@@ -40,7 +40,7 @@ def random_unit_number(length=6):
         choice(ascii_uppercase),
         choice(ascii_uppercase),
         choice(ascii_uppercase),
-        choice("UJZ")
+        choice("UJZ"),
     ]
     # Add the numeric digits
     unit_number.extend([randint(0, 9) for _ in range(length)])
@@ -96,7 +96,7 @@ def random_api_key(length=32):
 
 def random_base64(length=16):
     random_bytes = bytes(randint(0, 255) for _ in range(length))
-    return b64encode(random_bytes).decode('ascii')
+    return b64encode(random_bytes).decode("ascii")
 
 
 def random_hash():
@@ -189,15 +189,68 @@ def random_timestamp(start=None, end=None):
 def random_lorem(length=50):
     """Generate lorem ipsum text with 'length' words"""
     lorem_words = [
-        "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing",
-        "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore",
-        "et", "dolore", "magna", "aliqua", "enim", "ad", "minim", "veniam",
-        "quis", "nostrud", "exercitation", "ullamco", "laboris", "nisi", "aliquip",
-        "ex", "ea", "commodo", "consequat", "duis", "aute", "irure", "in",
-        "reprehenderit", "voluptate", "velit", "esse", "cillum", "fugiat",
-        "nulla", "pariatur", "excepteur", "sint", "occaecat", "cupidatat",
-        "non", "proident", "sunt", "culpa", "qui", "officia", "deserunt",
-        "mollit", "anim", "id", "est", "laborum"
+        "lorem",
+        "ipsum",
+        "dolor",
+        "sit",
+        "amet",
+        "consectetur",
+        "adipiscing",
+        "elit",
+        "sed",
+        "do",
+        "eiusmod",
+        "tempor",
+        "incididunt",
+        "ut",
+        "labore",
+        "et",
+        "dolore",
+        "magna",
+        "aliqua",
+        "enim",
+        "ad",
+        "minim",
+        "veniam",
+        "quis",
+        "nostrud",
+        "exercitation",
+        "ullamco",
+        "laboris",
+        "nisi",
+        "aliquip",
+        "ex",
+        "ea",
+        "commodo",
+        "consequat",
+        "duis",
+        "aute",
+        "irure",
+        "in",
+        "reprehenderit",
+        "voluptate",
+        "velit",
+        "esse",
+        "cillum",
+        "fugiat",
+        "nulla",
+        "pariatur",
+        "excepteur",
+        "sint",
+        "occaecat",
+        "cupidatat",
+        "non",
+        "proident",
+        "sunt",
+        "culpa",
+        "qui",
+        "officia",
+        "deserunt",
+        "mollit",
+        "anim",
+        "id",
+        "est",
+        "laborum",
     ]
     selected_words = [choice(lorem_words) for _ in range(length)]
     # Capitalize first word
