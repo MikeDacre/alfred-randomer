@@ -1,17 +1,51 @@
-*pyc
-.python-version
-.DS_Store
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 
-prefs.plist
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
 
-bin/
-build/
+# Keep .python-version for pyenv users
+# .python-version
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Distribution / packaging
 dist/
+build/
+*.egg-info/
 releases/
 
-.venv/
-.idea/
-.tmp/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
 
-.claude
+# Alfred
+prefs.plist
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+.tmp/
+*.tmp
+
+# Claude Code
+.claude/
 CLAUDE.md
