@@ -32,6 +32,15 @@ release-major: ## Bump major version and release
 test: ## Run tests
 	PYTHONPATH=src poetry run python3 -m unittest discover -s tests
 
+test-verbose: ## Run tests with verbose output
+	PYTHONPATH=src poetry run python3 -m unittest discover -s tests -v
+
+test-coverage: ## Run tests with coverage report
+	PYTHONPATH=src poetry run coverage run -m unittest discover -s tests
+	poetry run coverage report -m
+	poetry run coverage html
+	@echo "HTML coverage report generated in htmlcov/index.html"
+
 format: ## Format code with Black
 	poetry run black src/ tests/
 

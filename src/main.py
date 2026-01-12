@@ -42,7 +42,7 @@ def parse_args(args):
     if not args:
         return None, None, None, None
 
-    generator = args[0].lower() if args else None
+    generator = args[0].lower().strip() if args else None
 
     if len(args) == 1:
         # Just generator name
