@@ -28,6 +28,10 @@ def random_imei():
     return "".join(map(str, imei))
 
 
+def random_number(size=10):
+    return "".join(str(randint(0, 9)) for _ in range(size))
+
+
 def random_unit_number():
     number = [
         choice(ascii_uppercase),

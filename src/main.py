@@ -8,9 +8,10 @@ import generators
 
 GENERATORS = {
     "email": generators.random_email,
-    "imei": generators.random_imei,
-    "unit": generators.random_unit_number,
-    "uuid": generators.random_uuid,
+    "imei" : generators.random_imei,
+    "unit" : generators.random_unit_number,
+    "uuid" : generators.random_uuid,
+    "num"  : generators.random_number
 }
 
 
