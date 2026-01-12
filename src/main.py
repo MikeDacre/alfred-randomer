@@ -173,7 +173,7 @@ def filter_and_rank_generators(query):
     return results if results else sorted(GENERATORS.keys())
 
 
-def main(workflow):
+def main(workflow, number_of_results=1):
     generator, arg1, arg2, arg3 = parse_args(workflow.args)
 
     # Filter and rank generators based on query
@@ -182,7 +182,7 @@ def main(workflow):
     for name in items:
         try:
             # Generate 5 random values
-            values = [call_generator(name, arg1, arg2) for _ in range(5)]
+            values = [call_generator(name, arg1, arg2) for _ in range(number_of_results)]
             subtitle = get_subtitle(name, arg1, arg2)
 
             workflow.new_item(
