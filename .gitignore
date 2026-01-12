@@ -1,4 +1,5 @@
 *pyc
+.python-version
 .DS_Store
 
 prefs.plist
