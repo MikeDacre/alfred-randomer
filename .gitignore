@@ -12,3 +12,6 @@ releases/
 .venv/
 .idea/
 .tmp/
+
+.claude
+CLAUDE.md
