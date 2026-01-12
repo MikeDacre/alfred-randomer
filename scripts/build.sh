@@ -2,11 +2,20 @@ rm -rf ./dist
 mkdir -p ./dist
 
 echo "Copy dependencies"
-SITE_PACKAGES=$(find -L .venv -type d -name "site-packages" | head -1)
-if [ -z "$SITE_PACKAGES" ]; then
-  echo "Error: site-packages not found in .venv"
+# Find the virtualenv using poetry
+VENV_PATH=$(poetry env info --path 2>/dev/null)
+if [ -z "$VENV_PATH" ]; then
+  echo "Error: Could not find virtualenv. Run 'poetry install' first."
   exit 1
 fi
+
+SITE_PACKAGES=$(find -L "$VENV_PATH" -type d -name "site-packages" | head -1)
+if [ -z "$SITE_PACKAGES" ]; then
+  echo "Error: site-packages not found in virtualenv at $VENV_PATH"
+  exit 1
+fi
+
+echo "Using virtualenv: $VENV_PATH"
 cp -r "$SITE_PACKAGES"/* ./dist
 
 echo "Clean up dist folder"
