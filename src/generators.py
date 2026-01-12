@@ -186,7 +186,8 @@ def random_timestamp(start=None, end=None):
         return str(randint(now - year_seconds, now + year_seconds))
 
 
-def random_lorem(words=50):
+def random_lorem(length=50):
+    """Generate lorem ipsum text with 'length' words"""
     lorem_words = [
         "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing",
         "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore",
@@ -198,7 +199,7 @@ def random_lorem(words=50):
         "non", "proident", "sunt", "culpa", "qui", "officia", "deserunt",
         "mollit", "anim", "id", "est", "laborum"
     ]
-    selected_words = [choice(lorem_words) for _ in range(words)]
+    selected_words = [choice(lorem_words) for _ in range(length)]
     # Capitalize first word
     if selected_words:
         selected_words[0] = selected_words[0].capitalize()

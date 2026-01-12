@@ -124,15 +124,40 @@ def get_subtitle(name, arg1=None, arg2=None):
         return name
 
 
+def filter_and_rank_generators(query):
+    """Filter and rank generators based on query string"""
+    if not query:
+        return sorted(GENERATORS.keys())
+
+    query_lower = query.lower()
+
+    # Exact match
+    if query_lower in GENERATORS:
+        return [query_lower]
+
+    # Categorize matches
+    exact_matches = []
+    prefix_matches = []
+    substring_matches = []
+
+    for name in GENERATORS.keys():
+        if name == query_lower:
+            exact_matches.append(name)
+        elif name.startswith(query_lower):
+            prefix_matches.append(name)
+        elif query_lower in name:
+            substring_matches.append(name)
+
+    # Return ranked results, or all if no matches
+    results = exact_matches + sorted(prefix_matches) + sorted(substring_matches)
+    return results if results else sorted(GENERATORS.keys())
+
+
 def main(workflow):
     generator, arg1, arg2, arg3 = parse_args(workflow.args)
 
-    if generator and generator in GENERATORS:
-        # Show specific generator
-        items = [generator] * 5
-    else:
-        # Show all generators
-        items = sorted(GENERATORS.keys())
+    # Filter and rank generators based on query
+    items = filter_and_rank_generators(generator)
 
     for name in items:
         try:
